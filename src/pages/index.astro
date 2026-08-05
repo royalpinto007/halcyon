@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro'
+import EarCup from '../components/EarCup.astro'
+import { FEATURES, PRESS } from '../data/product'
+---
+<Base path="/">
+  <!-- Hero -->
+  <section class="relative mx-auto max-w-6xl px-6 pt-40 pb-20 text-center sm:pt-52 lg:px-8">
+    <p class="anim-rise text-sm uppercase tracking-[0.3em] text-[var(--color-copper)]">The Halcyon One</p>
+    <h1 class="anim-rise mx-auto mt-6 max-w-3xl font-display text-5xl font-light leading-[1.02] tracking-tight sm:text-7xl" style="animation-delay:.1s">
+      Sound, made <em class="font-medium italic">honest</em>.
+    </h1>
+    <p class="anim-rise mx-auto mt-6 max-w-lg text-lg text-[var(--color-ink-soft)]" style="animation-delay:.2s">
+      A reference pair of headphones built from beryllium, aluminium, and lambskin — and nothing you don’t need.
+    </p>
+    <div class="anim-rise mt-12 flex justify-center" style="animation-delay:.3s">
+      <EarCup />
+    </div>
+    <div class="anim-rise mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row" style="animation-delay:.4s">
+      <a href="/buy" class="w-full rounded-full bg-[var(--color-ink)] px-8 py-3 font-semibold text-[var(--color-paper)] transition hover:bg-[var(--color-copper)] sm:w-auto">Buy — $690</a>
+      <a href="/technology" class="w-full rounded-full border border-[var(--color-line)] px-8 py-3 font-medium transition hover:border-[var(--color-ink)] sm:w-auto">The technology</a>
+    </div>
+  </section>
+
+  <!-- Sticky-scroll product story -->
+  <section class="border-t border-[var(--color-line)]">
+    <div class="mx-auto max-w-6xl px-6 py-24 lg:px-8">
+      <div class="grid gap-12 md:grid-cols-2">
+        <div class="hidden md:flex md:sticky md:top-24 md:h-[80vh] md:items-center md:justify-center">
+          <EarCup size="w-[90%] max-w-lg" />
+        </div>
+        <div class="md:space-y-[38vh]">
+          {FEATURES.map((f, i) => (
+            <div class="reveal border-b border-[var(--color-line)] pb-14 md:border-none md:pb-0" data-d={String((i % 3) + 1)}>
+              <div class="mb-6 flex justify-center md:hidden"><EarCup size="w-40" /></div>
+              <p class="text-xs uppercase tracking-[0.25em] text-[var(--color-copper)]">{f.k}</p>
+              <h2 class="mt-3 font-display text-3xl font-light tracking-tight sm:text-4xl">{f.title}</h2>
+              <p class="mt-4 text-lg text-[var(--color-ink-soft)]">{f.body}</p>
+              <div class="mt-6 flex items-baseline gap-3">
+                <span class="font-display text-4xl font-light text-[var(--color-copper)]">{f.stat}</span>
+                <span class="text-sm text-[var(--color-ink-soft)]">{f.statLabel}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Press -->
+  <section class="border-t border-[var(--color-line)] bg-[var(--color-ink)] py-24 text-[var(--color-paper)]">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      <div class="grid gap-12 md:grid-cols-3">
+        {PRESS.map((p, i) => (
+          <figure class="reveal" data-d={String((i % 3) + 1)}>
+            <blockquote class="font-display text-2xl font-light italic leading-snug">“{p.quote}”</blockquote>
+            <figcaption class="mt-4 text-sm uppercase tracking-widest text-[var(--color-paper)]/60">{p.source}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Craft teaser -->
+  <section class="mx-auto max-w-6xl px-6 py-28 lg:px-8">
+    <div class="grid items-center gap-12 md:grid-cols-2">
+      <div class="reveal">
+        <p class="text-sm uppercase tracking-[0.25em] text-[var(--color-copper)]">Made in small batches</p>
+        <h2 class="mt-4 font-display text-4xl font-light leading-tight tracking-tight sm:text-5xl">
+          Forty pairs a week. Each one, by the same six hands.
+        </h2>
+        <p class="mt-5 text-lg text-[var(--color-ink-soft)]">
+          We don’t scale for the sake of it. Every Halcyon One is assembled, measured against a
+          reference curve, and signed before it leaves the bench.
+        </p>
+        <a href="/craft" class="mt-8 inline-flex items-center gap-2 font-semibold hover:text-[var(--color-copper)]">Read the story →</a>
+      </div>
+      <div class="reveal flex justify-center">
+        <div class="aspect-[4/5] w-full max-w-sm rounded-3xl bg-[var(--color-paper-2)]"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buy band -->
+  <section class="border-t border-[var(--color-line)] py-24 text-center">
+    <div class="mx-auto max-w-3xl px-6">
+      <h2 class="reveal font-display text-4xl font-light tracking-tight sm:text-6xl">Hear it for yourself.</h2>
+      <p class="reveal mt-4 text-lg text-[var(--color-ink-soft)]">Free 30-day home audition. Five-year warranty. Made to be kept.</p>
+      <a href="/buy" class="reveal mt-8 inline-block rounded-full bg-[var(--color-ink)] px-10 py-4 font-semibold text-[var(--color-paper)] transition hover:bg-[var(--color-copper)]">Buy the Halcyon One</a>
+    </div>
+  </section>
+</Base>
