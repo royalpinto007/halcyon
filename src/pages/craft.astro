@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro'
+---
+<Base path="/craft" title="Craft — Halcyon" description="Made in small batches by the same six hands.">
+  <section class="mx-auto max-w-4xl px-6 pt-40 pb-16 sm:pt-52 lg:px-8">
+    <p class="anim-rise text-sm uppercase tracking-[0.3em] text-[var(--color-copper)]">The story</p>
+    <h1 class="anim-rise mt-6 font-display text-5xl font-light leading-[1.04] tracking-tight sm:text-7xl" style="animation-delay:.1s">Forty pairs a week, and not one more.</h1>
+  </section>
+  <section class="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+    <div class="reveal space-y-6 text-xl leading-relaxed text-[var(--color-ink-soft)]">
+      <p>Halcyon began in a workshop above a piano shop, with a stubborn question: what would a pair of headphones sound like if nobody was allowed to cut a corner?</p>
+      <p>The answer took four years. We turned down investors who wanted us to add an app, a battery, a subscription. We kept the team at six, because past six, the care starts to leak out.</p>
+      <p>Every Halcyon One is assembled by hand, measured against a reference curve, and signed by the person who built it. If that means you wait two weeks, we think it is a fair trade for something you keep for a decade.</p>
+    </div>
+  </section>
+  <section class="mx-auto max-w-6xl px-6 pb-28 lg:px-8">
+    <div class="reveal grid grid-cols-2 gap-4 sm:grid-cols-3">
+      {[...Array(6)].map(() => <div class="aspect-square rounded-2xl bg-[var(--color-paper-2)]"></div>)}
+    </div>
+  </section>
+</Base>

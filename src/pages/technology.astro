@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro'
+const chapters = [
+  { n: '01', h: 'The driver comes first', b: 'Most headphones are tuned in software to hide a cheap driver. We do the opposite: a rigid beryllium dome, well-damped, that is already close to right before any voicing.' },
+  { n: '02', h: 'A chamber, not a gimmick', b: 'The acoustic chamber behind the driver is machined, not moulded, so every unit behaves identically. Consistency is the quiet luxury nobody advertises.' },
+  { n: '03', h: 'Passive over active', b: 'Noise-cancelling adds hiss, latency, and a battery. We seal the ear instead. The silence is real, and the sound is never processed on its way to you.' },
+  { n: '04', h: 'Measured, every one', b: 'Each pair is swept against a reference curve on the bench it was built at. If it drifts, it goes back. Nothing ships that we would not keep.' },
+]
+---
+<Base path="/technology" title="Technology — Halcyon" description="How the Halcyon One is engineered: driver-first design, machined chambers, and passive isolation.">
+  <section class="mx-auto max-w-4xl px-6 pt-40 pb-16 sm:pt-52 lg:px-8">
+    <p class="anim-rise text-sm uppercase tracking-[0.3em] text-[var(--color-copper)]">Technology</p>
+    <h1 class="anim-rise mt-6 font-display text-5xl font-light leading-[1.04] tracking-tight sm:text-6xl" style="animation-delay:.1s">Engineering you can hear, not read about.</h1>
+  </section>
+  <section class="mx-auto max-w-4xl px-6 pb-28 lg:px-8">
+    {chapters.map((c) => (
+      <div class="reveal grid gap-4 border-t border-[var(--color-line)] py-14 md:grid-cols-[5rem_1fr]">
+        <span class="font-display text-2xl font-light text-[var(--color-copper)]">{c.n}</span>
+        <div>
+          <h2 class="font-display text-3xl font-light tracking-tight">{c.h}</h2>
+          <p class="mt-4 max-w-xl text-lg text-[var(--color-ink-soft)]">{c.b}</p>
+        </div>
+      </div>
+    ))}
+  </section>
+</Base>

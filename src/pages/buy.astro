@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro'
+import { MODELS, SPECS } from '../data/product'
+---
+<Base path="/buy" title="Buy the Halcyon One — Halcyon" description="Choose your finish. Free 30-day home audition, five-year warranty.">
+  <section class="mx-auto max-w-6xl px-6 pt-40 pb-12 sm:pt-52 lg:px-8">
+    <p class="anim-rise text-sm uppercase tracking-[0.3em] text-[var(--color-copper)]">Buy</p>
+    <h1 class="anim-rise mt-5 font-display text-5xl font-light tracking-tight sm:text-6xl" style="animation-delay:.1s">Choose your finish.</h1>
+    <p class="anim-rise mt-4 text-lg text-[var(--color-ink-soft)]" style="animation-delay:.2s">Free 30-day home audition · Five-year warranty · Ships in two weeks.</p>
+  </section>
+  <section class="mx-auto max-w-6xl px-6 pb-24 lg:px-8">
+    <div class="grid gap-6 md:grid-cols-3">
+      {MODELS.map((m, i) => (
+        <div class="reveal flex flex-col rounded-3xl border border-[var(--color-line)] bg-[var(--color-paper-2)]/50 p-7" data-d={String((i % 3) + 1)}>
+          <div class="aspect-[4/3] w-full rounded-2xl" style={`background:radial-gradient(circle at 40% 35%, color-mix(in srgb, ${m.accent} 82%, white), ${m.accent})`}></div>
+          <div class="mt-5 flex items-baseline justify-between">
+            <h2 class="font-display text-xl">{m.name}</h2>
+            <span class="font-display text-xl">{m.price}</span>
+          </div>
+          <p class="mt-1 text-sm font-medium text-[var(--color-copper)]">{m.finish}</p>
+          <p class="mt-3 flex-1 text-sm text-[var(--color-ink-soft)]">{m.note}</p>
+          <button class="mt-6 rounded-full bg-[var(--color-ink)] px-6 py-3 font-semibold text-[var(--color-paper)] transition hover:bg-[var(--color-copper)]">Add to cart</button>
+        </div>
+      ))}
+    </div>
+  </section>
+  <section class="border-t border-[var(--color-line)]">
+    <div class="mx-auto max-w-4xl px-6 py-20 lg:px-8">
+      <h2 class="reveal font-display text-3xl font-light tracking-tight">In the box</h2>
+      <ul class="reveal mt-6 grid gap-3 text-lg text-[var(--color-ink-soft)] sm:grid-cols-2">
+        <li>· The Halcyon One</li>
+        <li>· 1.8m detachable OFC cable</li>
+        <li>· 6.3mm adapter, machined</li>
+        <li>· Hard travel case, felt-lined</li>
+        <li>· Certificate of measurement</li>
+        <li>· Five-year warranty card</li>
+      </ul>
+      <div class="reveal mt-10 grid gap-6 border-t border-[var(--color-line)] pt-8 sm:grid-cols-2">
+        {SPECS.slice(0, 4).map(([k, v]) => (
+          <div class="flex items-baseline justify-between"><span class="text-[var(--color-ink-soft)]">{k}</span><span class="font-display">{v}</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
