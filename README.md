@@ -36,6 +36,7 @@ story**, a pinned product visual while the feature copy scrolls alongside, in pu
 Astro 7 · React 19 (island) · TypeScript · Tailwind CSS v4 · Lenis · Vitest · Cloudflare Pages.
 
 ## Run it
+
 ```bash
 npm install
 npm run dev
@@ -44,4 +45,5 @@ npm run build
 ```
 
 ## License
+
 [MIT](LICENSE) © Royal Simpson Pinto · A concept design, not a real product.
