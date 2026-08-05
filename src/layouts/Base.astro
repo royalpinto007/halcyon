@@ -1,0 +1,52 @@
+---
+import '../styles/global.css'
+import { Nav } from '../components/Nav'
+import Footer from '../components/Footer.astro'
+interface Props { title?: string; description?: string; path?: string }
+const {
+  title = 'Halcyon — reference-grade headphones, obsessively made',
+  description = 'The Halcyon One: a 50mm beryllium driver, machined aluminium, passive isolation, and a five-year warranty. Sound, made honest.',
+  path = '/',
+} = Astro.props
+const canonical = new URL(path, Astro.site).toString()
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>document.documentElement.classList.add('js')</script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#e9e3d7" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://halcyon.signalizeai.org/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:image" content="https://halcyon.signalizeai.org/og.png" />
+  </head>
+  <body>
+    <Nav client:load path={path} />
+    <main><slot /></main>
+    <Footer />
+    <script>
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      const els = document.querySelectorAll<HTMLElement>('.reveal')
+      if (reduce) { els.forEach((el) => el.classList.add('in')) }
+      else {
+        const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { threshold: 0.12, rootMargin: '0px 0px -60px 0px' })
+        els.forEach((el) => io.observe(el))
+        window.addEventListener('load', () => setTimeout(() => els.forEach((el) => el.classList.add('in')), 1400))
+        const { default: Lenis } = await import('lenis')
+        const lenis = new Lenis({ duration: 1.15 })
+        const raf = (t: number) => { lenis.raf(t); requestAnimationFrame(raf) }
+        requestAnimationFrame(raf)
+      }
+    </script>
+  </body>
+</html>
