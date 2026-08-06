@@ -5,7 +5,7 @@
 **Reference-grade headphones, obsessively made.** A design-forward, **multi-page** luxury
 product site, warm, quiet, and editorial, statically rendered with Astro.
 
-[![ci](https://github.com/royalpinto007/halcyon/actions/workflows/ci.yml/badge.svg)](https://github.com/royalpinto007/halcyon/actions/workflows/ci.yml)
+[![ci](https://github.com/Facetworks/halcyon/actions/workflows/ci.yml/badge.svg)](https://github.com/Facetworks/halcyon/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Astro](https://img.shields.io/badge/Astro-7-ff5d01?logo=astro&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind-v4-38bdf8?logo=tailwindcss&logoColor=white)
